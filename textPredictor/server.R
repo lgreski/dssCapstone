@@ -18,7 +18,7 @@ source("predictText.R")
 shinyServer(function(input, output) {
   # aResult <- predictText(data,input$aPhrase)  
   output$predictedValue <- renderText({
-       data[1,prediction]
+       data[base == stri_trim_both(stri_trans_tolower(input$aPhrase)),prediction]
  
   })
   
