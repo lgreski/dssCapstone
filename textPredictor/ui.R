@@ -10,24 +10,26 @@
 library(shiny)
 
 # Define UI for application that draws a histogram
-shinyUI(fluidPage(
+shinyUI(pageWithSidebar(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Text Predictor"),
   
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
+  # Sidebar with text input and <predict> button 
+ 
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
+       textInput("aPhrase",
+                 label = h3("Text to predict"),
+                 value="enter text..."),
+       br(),
+       br(),
+       submitButton("Predict")
     ),
     
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("distPlot")
+       h3("Predicted Word"),
+       textOutput("predictedValue")
     )
-  )
+
 ))

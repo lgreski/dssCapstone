@@ -8,19 +8,18 @@
 #
 
 library(shiny)
+library(data.table)
+library(stringi)
+data <- data.table(readRDS("data/textAppDb.rds"))
+setkey(data,base)
+source("predictText.R")
 
-# Define server logic required to draw a histogram
+# Define server logic required to predict text from UI input
 shinyServer(function(input, output) {
-   
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
+  # aResult <- predictText(data,input$aPhrase)  
+  output$predictedValue <- renderText({
+       data[1,prediction]
+ 
   })
   
 })
