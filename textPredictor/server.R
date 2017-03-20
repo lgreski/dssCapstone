@@ -10,15 +10,19 @@
 library(shiny)
 library(data.table)
 library(stringi)
-data <- data.table(readRDS("data/textAppDb.rds"))
-setkey(data,base)
+appData <- data.table(readRDS("data/textAppDb.rds"))
+setkey(appData,base)
 source("predictText.R")
 
 # Define server logic required to predict text from UI input
 shinyServer(function(input, output) {
   # aResult <- predictText(data,input$aPhrase)  
   output$predictedValue <- renderText({
-       aResult <- data[base == stri_trim_both(stri_trans_tolower(input$aPhrase)),prediction]
+       # aResult <- data[base == stri_trim_both(stri_trans_tolower(input$aPhrase)),prediction]
+       baseTokens <- strsplit(stri_trim_both(stri_trans_tolower(input$aPhrase)),c(" "))[[1]]
+       tokenCount <- length(baseTokens)
+       
+       aResult <- predictText(dataTable=appData,base=stri_trim_both(stri_trans_tolower(input$aPhrase)))
        if (length(aResult) == 0) "the"
        else aResult
  
