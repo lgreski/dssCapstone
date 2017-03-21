@@ -13,14 +13,14 @@ library(shiny)
 shinyUI(pageWithSidebar(
   
   # Application title
-  titlePanel("Text Predictor"),
+  titlePanel("Text Predictor: Backoff Model"),
   
   # Sidebar with text input and <predict> button 
  
     sidebarPanel(
        textInput("aPhrase",
-                 label = h3("Text to predict"),
-                 value="enter text..."),
+                 label = h3("Enter text..."),
+                 value=""),
        br(),
        br(),
        submitButton("Predict")
