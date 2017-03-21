@@ -23,7 +23,7 @@ shinyUI(pageWithSidebar(
                  value=""),
        br(),
        br(),
-       submitButton("Predict")
+       submitButton("Predict",icon("refresh"))
     ),
     
     # Show a plot of the generated distribution

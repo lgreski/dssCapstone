@@ -52,8 +52,8 @@ predictText <- function(dataTable="dt",base="illegitimi non") {
           result <- dataTable[base == theBase,]
           if (nrow(result) > 0) return(result[1,prediction])
           
-          # return most frequently occuring word in corpus
-          return("the")
+          # return random from top 20 words
+          return(top20[round(runif(1,min=1,max=20))])
           
      }
      else if (tokenCount == 2){
@@ -67,8 +67,8 @@ predictText <- function(dataTable="dt",base="illegitimi non") {
           result <- dataTable[base == theBase,]
           if (nrow(result) > 0) return(result[1,prediction])
           
-          # return most frequently occuring word in corpus
-          return("the")
+          # return random from top 20 words
+          return(top20[round(runif(1,min=1,max=20))])
           
           
      }
@@ -78,12 +78,13 @@ predictText <- function(dataTable="dt",base="illegitimi non") {
           result <- dataTable[base == theBase,]
           if (nrow(result) > 0) return(result[1,prediction])
           
-          # return most frequently occuring word in corpus
-          return("the")
+          # return random from top 20 words
+          return(top20[round(runif(1,min=1,max=20))])
           
           
      }
      # if we get here, it's a surpise, but must always return a prediction 
-     return("the")
+     # return random from top 20 words
+     return(top20[round(runif(1,min=1,max=20))])
 
 }
