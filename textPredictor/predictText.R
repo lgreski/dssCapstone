@@ -7,7 +7,10 @@ predictText <- function(dataTable="dt",base="illegitimi non") {
      library(stringi)
      baseTokens <- strsplit(base,c(" "))[[1]]
      tokenCount <- length(baseTokens)
-     
+     top20 <- c("the","to","and","a","of",
+                "I","in","for","is","that",
+                "you","it","on","with","was",
+                "my","at","be","this","have")
      tokenList <- NULL
      if (tokenCount >= 4) {
           # grab last 4 words and query database
@@ -29,8 +32,8 @@ predictText <- function(dataTable="dt",base="illegitimi non") {
           result <- dataTable[base == theBase,]
           if (nrow(result) > 0) return(result[1,prediction])
           
-          # return most frequently occuring word in corpus
-          return("the")
+          # return random from top 20 words
+          return(top20[round(runif(1,min=1,max=20))])
           
      }
      else if (tokenCount == 3){
