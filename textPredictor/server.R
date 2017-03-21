@@ -16,16 +16,17 @@ source("predictText.R")
 
 # Define server logic required to predict text from UI input
 shinyServer(function(input, output) {
+  
 
   output$predictedValue <- renderText({
-       baseTokens <- strsplit(stri_trim_both(stri_trans_tolower(input$aPhrase)),c(" "))[[1]]
-       tokenCount <- length(baseTokens)
-       
-       aResult <- predictText(dataTable=appData,base=stri_trim_both(stri_trans_tolower(input$aPhrase)))
-       # if (length(aResult) == 0) "the"
-       # else aResult
-       aResult
- 
+    
+      baseTokens <- strsplit(stri_trim_both(stri_trans_tolower(input$aPhrase)),c(" "))[[1]]
+      tokenCount <- length(baseTokens)
+      
+      predictText(dataTable=appData,base=stri_trim_both(stri_trans_tolower(input$aPhrase)))
+    
   })
+  
+
   
 })

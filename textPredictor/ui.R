@@ -20,13 +20,10 @@ shinyUI(pageWithSidebar(
     sidebarPanel(
        textInput("aPhrase",
                  label = h3("Enter text..."),
-                 value=""),
-       br(),
-       br(),
-       submitButton("Predict",icon("refresh"))
+                 value="")
     ),
     
-    # Show a plot of the generated distribution
+    # Show predicted word 
     mainPanel(
        h3("Predicted Word"),
        textOutput("predictedValue")
