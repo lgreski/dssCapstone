@@ -20,11 +20,15 @@ shinyUI(pageWithSidebar(
     sidebarPanel(
        textInput("aPhrase",
                  label = h3("Enter text..."),
-                 value="")
+                 value=""),
+       br(),
+       br(),
+       submitButton("Predict",icon("refresh"))
     ),
     
     # Show predicted word 
     mainPanel(
+      br(),
        h3("Predicted Word"),
        textOutput("predictedValue")
     )

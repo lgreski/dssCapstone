@@ -22,9 +22,11 @@ shinyServer(function(input, output) {
     
       baseTokens <- strsplit(stri_trim_both(stri_trans_tolower(input$aPhrase)),c(" "))[[1]]
       tokenCount <- length(baseTokens)
-      
+      # if text has been entered, return a prediction, otherwise
+      # return a blank
+      if (tokenCount > 0)
       predictText(dataTable=appData,base=stri_trim_both(stri_trans_tolower(input$aPhrase)))
-    
+      else "Text box is empty, please enter text to be predicted."
   })
   
 
