@@ -1,0 +1,10 @@
+name: textPredictor
+title: textPredictor
+account: lgreski
+server: shinyapps.io
+appId: 165375
+bundleId: 757720
+url: https://lgreski.shinyapps.io/textPredictor/
+when: 1490182311.21988
+asMultiple: FALSE
+asStatic: FALSE
